@@ -8,6 +8,9 @@ import time
 from uritemplate import variables
 
 
+def lister():
+    list1 = listb.get()
+
 def update():
 
     f = open("discord_rpc.txt", 'w')
@@ -15,8 +18,12 @@ def update():
     client_id1 = client_id.get()
     state1 = state.get()
     details1 = details.get()
+    large_image1 =  large_image.get()
+    large_text1 =  large_text.get()
+    list1 = listb.curselection()
+    list1 = str(list1[0])
 
-    f.write(client_id1 + "," + state1 + "," + details1)
+    f.write(client_id1 + "," + state1 + "," + details1 + "," + large_image1 + "," + large_text1 + "," +list1)
     f.close()
 
 
@@ -46,7 +53,7 @@ def start():
 
 win = Tk()
 win.title("discord_rpc")
-win.geometry('300x600')
+win.geometry('300x800')
 
 label = tkinter.Label(win, text="DISCORD RPC")
 label.place(x=5, y=5, width=290, height=30)
@@ -79,26 +86,39 @@ large_image = tkinter.Entry(win)
 large_image.place(x=5, y=280, width=290, height=30)
 
 
-label = tkinter.Label(win, text="small_text")
+label = tkinter.Label(win, text="large_text")
 label.place(x=5, y=315, width=290, height=30)
 
-small_text = tkinter.Entry(win)
-small_text.place(x=5, y=360, width=290, height=30)
+large_text = tkinter.Entry(win)
+large_text.place(x=5, y=360, width=290, height=30)
 
 
 label = tkinter.Label(win, text="버튼 개수")
 label.place(x=5, y=395, width=290, height=30)
 
-list = Listbox(win, height=3)
-list.insert(0, "0")
-list.insert(1, "1")
-list.insert(2, "2")
-list.place(x=5, y=430, width=325, height=50)
+listb = Listbox(win, height=0)
+listb.insert(0, "0")
+listb.insert(1, "1")
+listb.insert(2, "2")
+listb.place(x=5, y=430, width=325, height=60)
+
+label = tkinter.Label(win, text="button name 1")
+label.place(x=5, y=485, width=290, height=30)
+
+button_name1 = tkinter.Entry(win)
+button_name1.place(x=5, y=520, width=290, height=30)
+
+label = tkinter.Label(win, text="button url 1")
+label.place(x=5, y=555, width=290, height=30)
+
+button_url1 = tkinter.Entry(win)
+button_url1.place(x=5, y=590, width=290, height=30)
 
 
 button = tkinter.Button(win, text="업데이트", command=update)
-button.place(x=5, y=495, width=140, height=30)
+button.place(x=5, y=655, width=140, height=30)
 button = tkinter.Button(win, text="실행하기", command=start)
-button.place(x=155, y=495, width=140, height=30)
+button.place(x=155, y=655, width=140, height=30)
 
 win.mainloop()
+
