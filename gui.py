@@ -40,14 +40,13 @@ def start():
                buttons=[{"label": "TNS 봇 초대하기", "url": "https://discord.com/api/oauth2/authorize?client_id=848795383751639080&permissions=8&scope=bot%20applications.commands"},
                         {"label": "TNS 공식 서버", "url": "https://discord.gg/HnBpftKCPu"}]
                )
-
     while 1:
         time.sleep(600)
 '''
 
 win = Tk()
 win.title("discord_rpc")
-win.geometry('300x500')
+win.geometry('300x600')
 
 label = tkinter.Label(win, text="DISCORD RPC")
 label.place(x=5, y=5, width=290, height=30)
@@ -98,8 +97,8 @@ list.place(x=5, y=430, width=325, height=50)
 
 
 button = tkinter.Button(win, text="업데이트", command=update)
-button.place(x=5, y=475, width=140, height=30)
+button.place(x=5, y=495, width=140, height=30)
 button = tkinter.Button(win, text="실행하기", command=start)
-button.place(x=155, y=475, width=140, height=30)
+button.place(x=155, y=495, width=140, height=30)
 
 win.mainloop()
